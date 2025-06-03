@@ -20,13 +20,11 @@ class Solution {
 
     boolean pathsum(TreeNode root, int cursum, int target)
     {
-        // base case
+
     if (root == null) return false;
 
-// if it's a leaf
     if (root.left == null && root.right == null && target == root.val) return true;
 
-// recur left and right
     return hasPathSum(root.left, target - root.val) || hasPathSum(root.right, target - root.val);
 
     }
