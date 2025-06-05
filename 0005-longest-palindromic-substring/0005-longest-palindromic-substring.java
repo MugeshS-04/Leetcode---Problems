@@ -4,9 +4,9 @@ class Solution {
         String result = s.charAt(0)+"";
         for(int i = 0; i < s.length()-1; i++)
         {
-            for(int j = i+1; j < s.length(); j++)
+            for(int j = i; j < s.length(); j++)
             {
-                String sub = s.substring(i, j);
+                String sub = s.substring(i, j+1);
                 if(palindrome(sub, max) && j-i > max)
                 {
                     max = j-i;
