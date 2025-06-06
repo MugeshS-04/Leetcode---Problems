@@ -10,6 +10,8 @@ class Solution {
 
         solve(result, board, n, 0);
 
+        System.gc();
+
         return result;
     }
 
