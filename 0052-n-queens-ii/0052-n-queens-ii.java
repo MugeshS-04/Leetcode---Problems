@@ -3,7 +3,6 @@ class Solution {
         boolean[][] placed = new boolean[n][n];
         int[] count = new int[1];
         solve(placed, n, 0, count);
-        System.gc();
         return count[0];
     }
 
