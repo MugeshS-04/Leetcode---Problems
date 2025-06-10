@@ -11,16 +11,7 @@ class Solution {
                 m++;
             }
         }
-        for(int i = 0; i < matrix.length*n; i++)
-        {
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
         Arrays.sort(arr);
-        for(int i = 0; i < matrix.length*n; i++)
-        {
-            System.out.print(arr[i]+" ");
-        }
         return arr[k-1];
     }
 }
