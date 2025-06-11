@@ -6,10 +6,12 @@ class Solution {
 
         while(start < end)
         {
-            int h = Math.min(height[start], height[end]);
-            int w = end - start;
-            max = Math.max(max, h*w);
-            if(height[end] > height[start])
+            int len = end - start;
+            int he = Math.min(height[start], height[end]);
+            int area = len * he;
+            max = Math.max(max, area);
+
+            if(height[start] < height[end])
             {
                 start++;
             }
@@ -17,9 +19,8 @@ class Solution {
             {
                 end--;
             }
-
         }
-        return max;
 
+        return max;
     }
 }
