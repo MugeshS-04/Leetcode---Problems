@@ -1,39 +1,38 @@
 class Solution {
     public String convert(String s, int numRows) {
-        StringBuilder sb = new StringBuilder();
-        char[][] mat = new char[numRows][s.length()];
+        char[][] str = new char[numRows][s.length()];
 
+        int index = 0;
         int row = 0;
         int col = 0;
-        int index = 0;
 
         while(index < s.length())
         {
             while(index < s.length() && row < numRows)
             {
-                mat[row][col] = s.charAt(index);
-                row++;
-                index++;
+                str[row++][col] = s.charAt(index++);
             }
-
-            row = Math.max(0, row - 2);
-            col++;
+            row = Math.max(0, row-2);
+            col = col + 1;
 
             while(index < s.length() && row > 0)
             {
-                mat[row][col] = s.charAt(index);
-                index++;
-                row--;
+                str[row][col] = s.charAt(index++);
                 col++;
+                row--;
             }
         }
 
+        StringBuilder sb = new StringBuilder();
+
         for(int i = 0; i < numRows; i++)
         {
-            for(int j = 0; j < mat[0].length; j++)
+            for(int j = 0; j < s.length(); j++)
             {
-                if(mat[i][j] != 0)
-                    sb.append(mat[i][j]);
+                if(str[i][j] != 0)
+                {
+                    sb.append(str[i][j]);
+                }
             }
         }
 
