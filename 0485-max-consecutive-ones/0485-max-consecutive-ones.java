@@ -5,16 +5,17 @@ class Solution {
 
         for(int i = 0; i < nums.length; i++)
         {
-            if(nums[i] == 0)
+            if(nums[i] == 1)
             {
-                cur = 0;
+                cur++;
             }    
             else
             {
-                cur++;
                 max = Math.max(cur, max);
+                cur = 0;
             }
         }
+        max = Math.max(cur, max);
 
         return max;
     }
