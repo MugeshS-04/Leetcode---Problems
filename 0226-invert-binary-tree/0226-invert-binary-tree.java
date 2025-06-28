@@ -17,14 +17,14 @@ class Solution {
     public TreeNode invertTree(TreeNode root) {
         if(root == null)
         {
-            return null;
+            return root;
         }
 
-        TreeNode r = invertTree(root.right);
-        TreeNode l = invertTree(root.left);
+        TreeNode right = invertTree(root.left);
+        TreeNode left = invertTree(root.right);
 
-        root.left = r;
-        root.right = l;
+        root.right = right;
+        root.left = left;
 
         return root;
     }
