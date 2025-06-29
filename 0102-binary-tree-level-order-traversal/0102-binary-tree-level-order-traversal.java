@@ -23,28 +23,30 @@ class Solution {
             return result;
         }
 
-        Deque<TreeNode> mydeque = new ArrayDeque<>();
+        Queue<TreeNode> myqueue = new LinkedList<>();
 
-        mydeque.addFirst(root);
+        myqueue.add(root);
 
-        while(mydeque.size() > 0)
+        while(myqueue.size() > 0)
         {
             List<Integer> current = new ArrayList<>();
 
-            int size = mydeque.size();
+            int size = myqueue.size();
 
             while(size != 0)
             {
-                current.add(mydeque.peekLast().val);
-                if(mydeque.peekLast() != null && mydeque.peekLast().left != null)
+                current.add(myqueue.peek().val);
+
+                if(myqueue.peek().left != null)
                 {
-                    mydeque.addFirst(mydeque.peekLast().left);
+                    myqueue.add(myqueue.peek().left);
                 }
-                if(mydeque.peekLast() != null && mydeque.peekLast().right != null)
+                if(myqueue.peek().right != null)
                 {
-                    mydeque.addFirst(mydeque.peekLast().right);
+                    myqueue.add(myqueue.peek().right);
                 }
-                mydeque.removeLast();
+
+                myqueue.poll();
                 size--;
             }
 
