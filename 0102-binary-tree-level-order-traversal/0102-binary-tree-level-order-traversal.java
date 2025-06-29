@@ -35,18 +35,19 @@ class Solution {
 
             while(size != 0)
             {
-                current.add(myqueue.peek().val);
+                TreeNode temp = myqueue.poll();
 
-                if(myqueue.peek().left != null)
-                {
-                    myqueue.add(myqueue.peek().left);
-                }
-                if(myqueue.peek().right != null)
-                {
-                    myqueue.add(myqueue.peek().right);
-                }
+                current.add(temp.val);
 
-                myqueue.poll();
+                if(temp.left != null)
+                {
+                    myqueue.add(temp.left);
+                }
+                if(temp.right != null)
+                {
+                    myqueue.add(temp.right);
+                }
+                
                 size--;
             }
 
