@@ -6,14 +6,7 @@ class Solution {
 
         for(i = 0; i < s.length(); i++)
         {
-            if(s.charAt(i) == ' ' && k == 0)
-            {
-                String word = reverse(s.substring(k, i));
-                result += word;
-                k = i+1;
-            }
-
-            else if(s.charAt(i) == ' ')
+            if(s.charAt(i) == ' ')
             {
                 String word = reverse(s.substring(k, i));
                 result += " " + word;
