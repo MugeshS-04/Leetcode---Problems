@@ -19,6 +19,8 @@ class Solution {
         myq.add(root);
         int count = 0;
 
+
+        //bfs
         while(!myq.isEmpty())
         {
             int size = myq.size();
@@ -28,7 +30,7 @@ class Solution {
             {
                 TreeNode temp = myq.poll();
                 int arr[] = new int[2];
-                findavg(temp, arr);
+                dfs(temp, arr);
                 
                 if(arr[0] != 0)
                 {
@@ -55,8 +57,9 @@ class Solution {
 
         return count;
     }
-
-    void findavg(TreeNode root, int arr[])
+    
+    //dfs
+    void dfs(TreeNode root, int arr[])
     {
         if(root == null)
         {
@@ -66,8 +69,8 @@ class Solution {
         arr[0] = arr[0] + 1;
         arr[1] = arr[1] + root.val;
 
-        findavg(root.left, arr);
-        findavg(root.right, arr);
+        dfs(root.left, arr);
+        dfs(root.right, arr);
 
         return;
     }
