@@ -22,15 +22,9 @@ class Solution {
         }
 
         String word = reverse(s.substring(k, i));
-        if(k == 0) {
-            result += word;
-        }
-        else
-        {
-            result += " "+ word;
-        }
+        result += " "+ word;
 
-        return result;
+        return result.trim();
     }
 
     String reverse(String word)
