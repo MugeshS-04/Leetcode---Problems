@@ -2,9 +2,8 @@ class Solution {
     public String reverseWords(String s) {
         String result = new String();
         int k = 0;
-        int i = 0;
 
-        for(i = 0; i < s.length(); i++)
+        for(int i = 0; i < s.length(); i++)
         {
             if(s.charAt(i) == ' ')
             {
@@ -14,7 +13,7 @@ class Solution {
             }
         }
 
-        String word = reverse(s.substring(k, i));
+        String word = reverse(s.substring(k, s.length()));
         result += " "+ word;
 
         return result.trim();
