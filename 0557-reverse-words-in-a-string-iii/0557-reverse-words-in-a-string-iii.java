@@ -23,7 +23,8 @@ class Solution {
             }
         }
 
-        result = result + " " + sc.toString();
+        if(!flag) result = result + " " + sc.toString();
+        else result = result +  sc.toString();
 
         return result;
     }
