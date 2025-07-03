@@ -2,7 +2,7 @@ class Solution {
     public int uniquePathsWithObstacles(int[][] ob) {
         int row = ob.length;
         int col = ob[0].length;
-        int dp[][] = new int[row+1][col+1];
+        int dp[][] = new int[row][col];
 
         for(int i = 0; i < row; i++)
         {
@@ -15,6 +15,7 @@ class Solution {
                 break;
             }
         }
+
         for(int i = 0; i < col; i++)
         {
             if(ob[0][i] != 1)
