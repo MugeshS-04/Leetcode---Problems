@@ -1,8 +1,7 @@
 class Solution {
     public String decodeString(String s) {
+
         Stack <Character> mystack = new Stack();
-        StringBuilder sb = new StringBuilder();
-        StringBuilder num = new StringBuilder();
 
         int start = 0;
 
@@ -15,32 +14,41 @@ class Solution {
 
             if(s.charAt(start) == ']')
             {
+                StringBuilder sb = new StringBuilder();
+                StringBuilder num = new StringBuilder();
+
                 while(mystack.peek() != '[')
                 {
                     sb.insert(0, mystack.pop());
                 }
+
                 mystack.pop();
+
                 while(!mystack.isEmpty() && Character.isDigit(mystack.peek()))
                 {
                     num.insert(0, mystack.pop());
                 }
 
-                String result = sb.toString().repeat(Integer.parseInt(num.toString()));
-                sb.setLength(0);
-                num.setLength(0);
-                for(int i = 0; i < result.length(); i++)
+                int rep = Integer.parseInt(new String(num));
+
+                String obtained = sb.toString().repeat(rep);
+
+                for(int i = 0; i < obtained.length(); i++)
                 {
-                    mystack.push(result.charAt(i));
+                    mystack.push(obtained.charAt(i));
                 }
             }
+
             start++;
         }
-        sb.setLength(0);
+
+        StringBuilder result = new StringBuilder();
+
         while(!mystack.isEmpty())
         {
-            sb.insert(0, mystack.pop());
+            result.insert(0, mystack.pop());
         }
 
-        return sb.toString();
+        return result.toString();
     }
 }
