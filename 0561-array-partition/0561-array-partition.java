@@ -12,7 +12,7 @@ class Solution {
        {
         for(int i = 0; i < n; i+=2)
         {
-            max += Math.min(nums[i], nums[i+1]);
+            max += nums[i];
         }
         return max;
        }
