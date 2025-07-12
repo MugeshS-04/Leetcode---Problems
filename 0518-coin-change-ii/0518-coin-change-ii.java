@@ -1,19 +1,19 @@
 class Solution {
     public int change(int amount, int[] coins) {
-        int dp[] = new int[amount + 1];
+        int dp[] = new int[amount+1];
 
         dp[0] = 1;
 
-        for(int j = 0; j < coins.length; j++)
-        {
-            for(int i = 1; i <=amount; i++)
+            for(int coin : coins)
             {
-                if(coins[j] <= i)
+                for(int i = 1; i <= amount; i++)
                 {
-                    dp[i] += dp[i - coins[j]];
+                    if(coin <= i)
+                    {
+                        dp[i] += dp[i-coin];
+                    }
                 }
             }
-        }
 
         return dp[amount];
     }
