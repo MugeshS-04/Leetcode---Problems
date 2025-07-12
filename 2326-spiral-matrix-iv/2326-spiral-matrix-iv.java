@@ -27,8 +27,6 @@ class Solution {
         int down = m-1;
         int left = 0;
 
-        int index = 0;
-
         ListNode temp = head;
 
         while(top <= down)
@@ -44,7 +42,6 @@ class Solution {
                 {
                     mat[row][col++] = temp.val;
                     temp = temp.next;
-                    index++;
                 }
             }
 
@@ -61,7 +58,6 @@ class Solution {
                 else
                 {
                     mat[row++][col] = temp.val;
-                    index++;
                     temp = temp.next;
                 }
             }
@@ -79,7 +75,6 @@ class Solution {
                 else
                 {
                     mat[row][col--] = temp.val;
-                    index++;
                     temp = temp.next;
                 }
             }
@@ -102,7 +97,6 @@ class Solution {
                 {
                     mat[row--][col] = temp.val;
                     temp = temp.next;
-                    index++;
                 }
             }
 
