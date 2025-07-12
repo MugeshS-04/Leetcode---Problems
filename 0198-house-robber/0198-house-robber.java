@@ -1,29 +1,15 @@
 class Solution {
     public int rob(int[] nums) {
-        int first = 0;
-        int second = 0;
+        int dp[] = new int[nums.length + 1];
 
-        int index = 0;
+        dp[0] = 0;
+        dp[1] = nums[0];
 
-        while(index < nums.length)
+        for(int i = 2; i <=nums.length; i++)
         {
-            if(index % 2 == 0)
-            {
-                second+=nums[index];
-            }
-            else
-            {
-                first+=nums[index];
-            }
-
-            index++;
+            dp[i] = Math.max(dp[i-1], dp[i-2]+nums[i-1]);
         }
 
-        if(first == second && first != 0)
-        {
-            return first+1;
-        }
-
-        return first > second ? first : second;
+        return dp[nums.length];
     }
 }
