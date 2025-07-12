@@ -31,7 +31,7 @@ class Solution {
 
         ListNode temp = head;
 
-        while(index < size)
+        while(top <= down)
         {
             //left -> right
             while(col <= right)
@@ -52,7 +52,6 @@ class Solution {
             row++;
 
             //top -> down
-
             while(row <= down)
             {
                 if(temp == null)
