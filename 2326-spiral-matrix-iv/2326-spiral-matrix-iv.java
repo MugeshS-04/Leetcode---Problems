@@ -20,8 +20,6 @@ class Solution {
         int row = 0;
         int col = 0;
 
-        int size = m * n;
-
         int top = 0;
         int right = n-1;
         int down = m-1;
