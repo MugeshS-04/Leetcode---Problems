@@ -1,17 +1,19 @@
 class Solution {
     public int countHillValley(int[] nums) {
         HashSet <Integer> myset = new HashSet<>();
-        int index = 0;
+        int val = nums[0];
+        int index = 1;
         int count = 0;
 
         for(int i = 0; i < nums.length; i++)
         {
-            if(myset.contains(nums[i]))
+            if(val == nums[i])
             {
                 continue;
             }
             else
             {
+                val = nums[i];
                 nums[index++] = nums[i];
                 myset.add(nums[i]);
             }
