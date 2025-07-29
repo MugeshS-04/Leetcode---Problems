@@ -22,7 +22,6 @@ class Solution {
             return w1 == s.length();
         }
 
-        boolean firstmatch = w1 < s.length() && (s.charAt(w1) == p.charAt(w2) || p.charAt(w2) == '?');
 
         boolean ans;
 
@@ -32,6 +31,7 @@ class Solution {
         }
         else
         {
+            boolean firstmatch = w1 < s.length() && (s.charAt(w1) == p.charAt(w2) || p.charAt(w2) == '?');
             ans = firstmatch && dp(w1+1, w2+1, s, p ,memo);
         }
 
