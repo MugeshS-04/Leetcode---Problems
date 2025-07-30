@@ -21,8 +21,6 @@ class Solution {
                     {
                         temp.append(count);
                         temp.append(val);
-
-                        System.out.println(temp);
                     }
                 }
                 else
