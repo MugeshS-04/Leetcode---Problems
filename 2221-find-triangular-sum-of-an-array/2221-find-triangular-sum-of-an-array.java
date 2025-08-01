@@ -2,8 +2,6 @@ class Solution {
     public int triangularSum(int[] nums) {
         int size = nums.length;
 
-        int index = 0;
-
         if(size == 1)
         {
             return nums[0];
@@ -13,11 +11,7 @@ class Solution {
         {
             for(int i = 0; i < size-1; i++)
             {
-                nums[i] = nums[i] + nums[i+1];
-                if(nums[i] > 9)
-                {
-                    nums[i] = nums[i] % 10;
-                }
+                nums[i] = (nums[i] + nums[i+1]) % 10;
             }
             size--;
         }
