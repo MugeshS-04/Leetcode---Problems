@@ -43,8 +43,8 @@ class Solution {
         }
 
 
-        max = Math.max(count, max);
+        //max = Math.max(count, max);
 
-        return max;   
+        return max >= count ? max : count;   
     }
 }
