@@ -40,10 +40,10 @@ class Solution {
                 count++;
                 end++;
             }
+            max = Math.max(count, max);
         }
 
 
-        //max = Math.max(count, max);
 
         return max >= count ? max : count;   
     }
