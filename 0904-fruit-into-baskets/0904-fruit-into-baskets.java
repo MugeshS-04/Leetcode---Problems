@@ -45,6 +45,6 @@ class Solution {
 
 
 
-        return max >= count ? max : count;   
+        return max;   
     }
 }
