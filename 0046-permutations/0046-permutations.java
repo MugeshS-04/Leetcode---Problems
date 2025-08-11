@@ -1,12 +1,11 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result = new ArrayList();
-        List<Integer> current = new ArrayList();
-        permutation(result, current, nums);
+        List<List<Integer>> result = new ArrayList<>();
+        permutation(nums, result, new ArrayList<>());
         return result;
     }
 
-    void permutation(List<List<Integer>> result, List<Integer> current, int[] nums)
+    void permutation(int[] nums, List<List<Integer>> result, List<Integer> current)
     {
         if(current.size() == nums.length)
         {
@@ -19,9 +18,11 @@ class Solution {
             if(!current.contains(nums[i]))
             {
                 current.add(nums[i]);
-                permutation(result, current, nums);
+                permutation(nums, result, current);
                 current.remove(current.size() - 1);
             }
         }
+
+        return;
     }
 }
