@@ -15,14 +15,13 @@ class Solution {
             //top-movement
             while(index < result.length && row >= 0 && col < col_size)
             {
-                System.out.print(mat[row][col]+" ");
                 result[index++] = mat[row][col];
                 row--;
                 col++;
             }
 
             row++;
-            System.out.println();
+
             if(col == col_size) 
             {
                 row++;
@@ -44,7 +43,6 @@ class Solution {
                 col++;
                 row--;
             }
-            System.out.println();
 
         }
 
