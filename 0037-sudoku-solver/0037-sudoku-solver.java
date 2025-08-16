@@ -19,7 +19,7 @@ class Solution {
                             if(solve(board))
                             {
                                 return true;
-                            };
+                            }
                             board[row][col] = '.';
                         }
                     }
