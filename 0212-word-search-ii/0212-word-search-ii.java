@@ -1,6 +1,7 @@
 class Solution {
     public List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<>();
+
         HashSet<String> myset = new HashSet<>();
 
         boolean[][] check = new boolean[board.length][board[0].length];
@@ -18,38 +19,45 @@ class Solution {
             {
                 if(obj.startsWith(board[i][j]+""))
                 {
-                    search(board, i, j, result, myset, check, new StringBuilder(), obj);
+                    search(board, i, j, myset, check, new StringBuilder(), obj);
                 }
             }
+        }
+
+        for(String word : myset)
+        {
+            result.add(word);
         }
 
         return result;
     }
 
-    void search(char[][] board, int row, int col, List<String> result, HashSet<String> myset, boolean[][] check, StringBuilder sb, Trie obj)
+    void search(char[][] board, int row, int col, HashSet<String> myset, boolean[][] check, StringBuilder sb, Trie obj)
     {
         if(row < 0 || col < 0 || 
            row > board.length-1 || col > board[0].length-1 || 
-           check[row][col] == true || 
-           obj.startsWith(sb.toString()) == false)
+           check[row][col] == true)
         {
             return;
         }
 
-        check[row][col] = true;
-
         sb.append(board[row][col]);
 
-        if(obj.isword(sb.toString()) && !myset.contains(sb.toString()))
-        {
-            result.add(sb.toString());
-            myset.add(sb.toString());
+        if (!obj.startsWith(sb.toString())) {
+            sb.deleteCharAt(sb.length() - 1);
+            return;
         }
 
-        search(board, row-1, col, result, myset, check, sb, obj);
-        search(board, row+1, col, result, myset, check, sb, obj);
-        search(board, row, col-1, result, myset, check, sb, obj);
-        search(board, row, col+1, result, myset, check, sb, obj);
+        if(obj.isword(sb.toString()))
+        {
+            myset.add(sb.toString());
+        }
+        check[row][col] = true;
+
+        search(board, row-1, col, myset, check, sb, obj);
+        search(board, row+1, col, myset, check, sb, obj);
+        search(board, row, col-1, myset, check, sb, obj);
+        search(board, row, col+1, myset, check, sb, obj);
 
         check[row][col] = false;
         sb.deleteCharAt(sb.length() - 1);
