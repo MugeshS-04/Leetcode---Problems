@@ -12,19 +12,17 @@ class Solution {
     public int pairSum(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
-        ListNode revnode = head;
 
         while(fast != null && fast.next != null)
         {
-            revnode = slow;
             fast = fast.next.next;
             slow = slow.next;
         }
 
-        revnode.next = reverse(slow);
+        
+        ListNode last = reverse(slow);
 
         ListNode start = head;
-        ListNode last = revnode.next;
 
         int max = 0;
 
