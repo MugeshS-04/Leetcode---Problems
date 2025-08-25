@@ -31,7 +31,6 @@ class Solution {
             //down-movement
             while(index < result.length && row < row_size && col >= 0)
             {
-                System.out.print(mat[row][col]+" ");
                 result[index++] = mat[row][col];
                 row++;
                 col--;
