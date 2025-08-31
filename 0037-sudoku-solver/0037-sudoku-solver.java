@@ -11,15 +11,12 @@ class Solution {
             {
                 if(board[row][col] == '.')
                 {
-                    for(char digit = '1'; digit <= '9'; digit++)
+                    for(char ch = '1'; ch <= '9'; ch++)
                     {
-                        if(isvalid(board, row, col, digit))
+                        if(check(board, row, col, ch))
                         {
-                            board[row][col] = digit;
-                            if(solve(board))
-                            {
-                                return true;
-                            }
+                            board[row][col] = ch;
+                            if(solve(board)) return true;
                             board[row][col] = '.';
                         }
                     }
@@ -27,28 +24,38 @@ class Solution {
                 }
             }
         }
+
         return true;
     }
 
-    boolean isvalid(char[][] board, int row, int col, char digit)
+    boolean check(char[][] board, int row, int col, char ch)
     {
+        //row & col
         for(int i = 0; i < 9; i++)
         {
-            if(board[row][i] == digit)
-            {
-                return false;
-            }
-            if(board[i][col] == digit)
+            if(board[i][col] == ch)
             {
                 return false;
             }
 
-            int rowgrid = 3 * (row/3) + i/3;
-            int colgrid = 3 * (col/3) + i%3;
-
-            if(board[rowgrid][colgrid] == digit)
+            if(board[row][i] == ch)
             {
                 return false;
+            }
+        }
+
+        //sub-matrix
+        int r = (row/3) * 3;
+        int c = (col/3) * 3;
+
+        for(int i = r; i < r+3; i++)
+        {
+            for(int j = c; j < c+3; j++)
+            {
+                if(board[i][j] == ch)
+                {
+                    return false;
+                }
             }
         }
 
