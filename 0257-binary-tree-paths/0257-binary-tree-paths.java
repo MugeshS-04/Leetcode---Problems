@@ -26,17 +26,12 @@ class Solution {
     {
         if(root == null) return;
 
+        if(path.length() == 0) path = root.val+"";
+        else path = path+"->"+root.val;
+
         if(root.left == null && root.right == null)
         {
-            if(path.length() == 0) path = root.val+"";
-            else path = path+"->"+root.val;
-
             result.add(new String(path));
-        }
-        else
-        {
-            if(path.length() == 0) path = root.val+"";
-            else path = path+"->"+root.val;
         }
 
         treepath(root.left, result, path);
