@@ -47,7 +47,7 @@ class Solution {
         
         while(index+1 != k)
         {
-            System.out.print(myq.poll());
+            myq.poll();
             index++;
         }
 
