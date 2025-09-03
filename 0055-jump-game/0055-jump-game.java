@@ -4,14 +4,10 @@ class Solution {
 
         for(int i = 1; i < nums.length; i++)
         {
-            jump--;
+            if(jump <= 0) return false;
+            
+            jump = Math.max(nums[i], jump-1);
 
-            if(jump < 0)
-            {
-                return false;
-            }
-
-            jump = Math.max(jump, nums[i]);
         }
 
         return true;
