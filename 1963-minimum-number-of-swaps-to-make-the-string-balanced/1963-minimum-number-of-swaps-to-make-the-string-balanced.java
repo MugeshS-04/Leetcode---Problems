@@ -23,11 +23,6 @@ class Solution {
                 }
                 else
                 {
-                    if(balance(arr))
-                    {
-                        break;
-                    }
-
                     while(en > st && arr[en] == ']')
                     {
                         en--;
@@ -37,6 +32,7 @@ class Solution {
                     arr[en] = ']';
                     en--;
                     count++;
+                    bal++;
 
                     // System.out.print(st +" "+ en +" ---> ");
 
