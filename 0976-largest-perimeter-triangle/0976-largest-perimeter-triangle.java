@@ -1,0 +1,17 @@
+class Solution {
+    public int largestPerimeter(int[] nums) {
+        int len = nums.length;
+        Arrays.sort(nums);
+        for(int i = len-1; i>=2;i--)
+        {
+            int a = nums[i];
+            int b = nums[i-1];
+            int c = nums[i-2];
+            if((a + b) > c && (b + c) > a && (c+a) > b)
+            {
+                return a+b+c;
+            }
+        }
+        return 0;
+    }
+}
