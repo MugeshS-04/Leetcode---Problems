@@ -1,6 +1,7 @@
 class Solution {
     public boolean hasIncreasingSubarrays(List<Integer> nums, int k) {
-       
+        if(k == 1 && nums.size() > 1) return true;
+
         int start = 0;
         int end = k;
 
