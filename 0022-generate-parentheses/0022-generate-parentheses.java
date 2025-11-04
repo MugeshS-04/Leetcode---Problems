@@ -1,32 +1,31 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList();
-        StringBuilder mystr = new StringBuilder();
-        combinations(result, n, mystr, 0, 0);
+        StringBuilder sb = new StringBuilder();
+        generate(result, sb, n, 0, 0);
         return result;
     }
 
-    public void combinations(List<String> result, int n, StringBuilder mystr, int open_count, int close_count)
+    void generate(List<String> result, StringBuilder sb, int n, int opencount, int closecount)
     {
-        if(mystr.length() == n+n)
+        if(opencount == closecount && opencount == n)
         {
-            result.add(mystr.toString());
+            result.add(new String(sb.toString()));
             return;
         }
-  
-        if(open_count < n)
+
+        if(opencount < n)
         {
-            mystr.append('(');
-            combinations(result, n, mystr, open_count+1, close_count);
-            mystr.deleteCharAt(mystr.length()-1);
+            sb.append('(');
+            generate(result, sb, n, opencount+1, closecount);
+            sb.deleteCharAt(sb.length()-1);
         }
-            
-        if(close_count < open_count)
+
+        if(opencount > closecount)
         {
-            mystr.append(')');
-            combinations(result, n, mystr, open_count, close_count+1);
-            mystr.deleteCharAt(mystr.length()-1);
-        }   
-         
-    }      
+            sb.append(')');
+            generate(result, sb, n, opencount, closecount+ 1);
+            sb.deleteCharAt(sb.length()-1);
+        }
+    }
 }
