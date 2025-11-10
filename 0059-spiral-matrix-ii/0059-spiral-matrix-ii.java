@@ -18,9 +18,7 @@ class Solution {
         {
             while(col <= right)
             {
-                mat[row][col] = index;
-                col++;
-                index++;
+                mat[row][col++] = index++;
             }
 
             col--;
@@ -28,9 +26,7 @@ class Solution {
 
             while(row <= down)
             {
-                mat[row][col] = index;
-                index++;
-                row++;
+                mat[row++][col] = index++;
             }
 
             row--;
@@ -38,9 +34,7 @@ class Solution {
 
             while(col >= left)
             {
-                mat[row][col] = index;
-                index++;
-                col--;
+                mat[row][col--] = index++;
             }
 
             col++;
@@ -50,9 +44,7 @@ class Solution {
 
             while(row >= top)
             {
-                mat[row][col] = index;
-                index++;
-                row--;
+                mat[row--][col] = index++;
             }
 
             row++;
